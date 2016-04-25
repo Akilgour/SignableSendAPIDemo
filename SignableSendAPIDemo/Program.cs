@@ -22,6 +22,19 @@ namespace SignableSendAPIDemo
 
             GetDetail(webClient, getTemplates);
 
+            Console.WriteLine("Enter first name of the person who is getting this email");
+            string firstName = Console.ReadLine();
+            Console.WriteLine("Enter surname of the person who is getting this email");
+            string surName = Console.ReadLine();
+            Console.WriteLine("Enter email of the person who is getting this email");
+            string email = Console.ReadLine();
+
+            var envelopesParties = new EnvelopeParties();
+            envelopesParties.party_name = firstName + " " + surName;
+            envelopesParties.party_email = email;
+            envelopesParties.party_id = "1450215"; //template_parties, party_id
+            envelopesParties.party_message = "Please sign this!";
+
             Console.WriteLine("End");
             Console.WriteLine("Press any key to end ...");
             Console.ReadLine();
@@ -44,5 +57,16 @@ namespace SignableSendAPIDemo
             Console.WriteLine("Press any key to continue ...");
             Console.ReadLine();
         }
+
+
     }
+
+    internal class EnvelopeParties
+    {
+        public string party_email { get; set; }
+        public string party_id { get; set; }
+        public string party_message { get; set; }
+        public string party_name { get; set; }
+    }
+
 }

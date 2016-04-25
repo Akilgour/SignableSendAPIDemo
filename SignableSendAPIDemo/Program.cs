@@ -35,6 +35,17 @@ namespace SignableSendAPIDemo
             envelopesParties.party_id = "1450215"; //template_parties, party_id
             envelopesParties.party_message = "Please sign this!";
 
+            Console.WriteLine("Enter item for the report");
+            string reportItem = Console.ReadLine();
+            Console.WriteLine("Enter total for the report");
+            string reportTotal = Console.ReadLine();
+
+            var documentMergeFields = new List<MergeFields>();
+            documentMergeFields.Add(new MergeFields() { field_id = "3560892", field_value = reportItem });
+            documentMergeFields.Add(new MergeFields() { field_id = "3560893", field_value = reportTotal });
+
+
+
             Console.WriteLine("End");
             Console.WriteLine("Press any key to end ...");
             Console.ReadLine();
@@ -69,4 +80,9 @@ namespace SignableSendAPIDemo
         public string party_name { get; set; }
     }
 
+    internal class MergeFields
+    {
+        public string field_id { get; set; }
+        public string field_value { get; set; }
+    }
 }

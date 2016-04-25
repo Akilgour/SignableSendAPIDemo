@@ -44,6 +44,10 @@ namespace SignableSendAPIDemo
             documentMergeFields.Add(new MergeFields() { field_id = "3560892", field_value = reportItem });
             documentMergeFields.Add(new MergeFields() { field_id = "3560893", field_value = reportTotal });
 
+            var envelopeDoucments = new EnvelopeDocuments();
+            envelopeDoucments.document_title = "Title goes here";
+            envelopeDoucments.document_template_fingerprint = "1e6d119f0f873a67f2375f3045e00e79";
+            envelopeDoucments.document_merge_fields = documentMergeFields;
 
 
             Console.WriteLine("End");
@@ -84,5 +88,12 @@ namespace SignableSendAPIDemo
     {
         public string field_id { get; set; }
         public string field_value { get; set; }
+    }
+
+    internal class EnvelopeDocuments
+    {
+        public string document_template_fingerprint { get; set; }
+        public string document_title { get; set; }
+        public List<MergeFields> document_merge_fields { get; set; }
     }
 }

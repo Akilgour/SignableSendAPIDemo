@@ -10,6 +10,11 @@ namespace SignableSendAPIDemo
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Start");
+
+            Console.WriteLine("End");
+            Console.WriteLine("Press any key to end ...");
+            Console.ReadLine();
         }
     }
 }
